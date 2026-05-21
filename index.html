@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HireFlow — Find Your Dream Job</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">Hire<span>Flow</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="companies.html">Companies</a></li>
+      <li><a href="apply.html">Apply</a></li>
+    </ul>
+    <a href="apply.html" class="btn-nav">Post a Job</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">🚀 500+ Companies Hiring Now</div>
+    <h1>Find Work That <span>Moves</span> You</h1>
+    <p>Connect with top companies. Land your dream role. Build your future.</p>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Job title, skill, or keyword..." />
+      <select id="locationFilter">
+        <option value="">All Locations</option>
+        <option value="bangalore">Bangalore</option>
+        <option value="mumbai">Mumbai</option>
+        <option value="hyderabad">Hyderabad</option>
+        <option value="remote">Remote</option>
+      </select>
+      <button onclick="searchJobs()">Search Jobs</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span>12,000+</span><p>Jobs Posted</p></div>
+      <div class="stat"><span>500+</span><p>Companies</p></div>
+      <div class="stat"><span>50,000+</span><p>Candidates</p></div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories">
+    <h2>Browse by Category</h2>
+    <div class="cat-grid">
+      <div class="cat-card" onclick="filterCategory('Engineering')">💻 Engineering <span>2,400 jobs</span></div>
+      <div class="cat-card" onclick="filterCategory('Design')">🎨 Design <span>890 jobs</span></div>
+      <div class="cat-card" onclick="filterCategory('Marketing')">📣 Marketing <span>1,100 jobs</span></div>
+      <div class="cat-card" onclick="filterCategory('DevOps')">⚙️ DevOps <span>650 jobs</span></div>
+      <div class="cat-card" onclick="filterCategory('Data')">📊 Data Science <span>970 jobs</span></div>
+      <div class="cat-card" onclick="filterCategory('Finance')">💰 Finance <span>780 jobs</span></div>
+    </div>
+  </section>
+
+  <!-- FEATURED JOBS -->
+  <section class="jobs-section">
+    <h2>Featured Jobs</h2>
+    <div class="jobs-grid" id="jobsGrid">
+
+      <div class="job-card" data-category="DevOps" data-location="bangalore">
+        <div class="job-header">
+          <div class="company-logo">🏢</div>
+          <div>
+            <h3>DevOps Engineer</h3>
+            <p class="company">Infosys</p>
+          </div>
+          <span class="badge full-time">Full Time</span>
+        </div>
+        <div class="job-tags">
+          <span>AWS</span><span>Terraform</span><span>Docker</span>
+        </div>
+        <div class="job-footer">
+          <span>📍 Bangalore</span>
+          <span>💰 ₹12-18 LPA</span>
+          <a href="apply.html" class="btn-apply">Apply</a>
+        </div>
+      </div>
+
+      <div class="job-card" data-category="Engineering" data-location="hyderabad">
+        <div class="job-header">
+          <div class="company-logo">🔵</div>
+          <div>
+            <h3>Software Engineer</h3>
+            <p class="company">Microsoft</p>
+          </div>
+          <span class="badge full-time">Full Time</span>
+        </div>
+        <div class="job-tags">
+          <span>React</span><span>Node.js</span><span>Azure</span>
+        </div>
+        <div class="job-footer">
+          <span>📍 Hyderabad</span>
+          <span>💰 ₹20-30 LPA</span>
+          <a href="apply.html" class="btn-apply">Apply</a>
+        </div>
+      </div>
+
+      <div class="job-card" data-category="Design" data-location="remote">
+        <div class="job-header">
+          <div class="company-logo">🎨</div>
+          <div>
+            <h3>UI/UX Designer</h3>
+            <p class="company">Razorpay</p>
+          </div>
+          <span class="badge remote">Remote</span>
+        </div>
+        <div class="job-tags">
+          <span>Figma</span><span>Prototyping</span><span>CSS</span>
+        </div>
+        <div class="job-footer">
+          <span>📍 Remote</span>
+          <span>💰 ₹10-15 LPA</span>
+          <a href="apply.html" class="btn-apply">Apply</a>
+        </div>
+      </div>
+
+      <div class="job-card" data-category="Data" data-location="mumbai">
+        <div class="job-header">
+          <div class="company-logo">📊</div>
+          <div>
+            <h3>Data Scientist</h3>
+            <p class="company">Flipkart</p>
+          </div>
+          <span class="badge full-time">Full Time</span>
+        </div>
+        <div class="job-tags">
+          <span>Python</span><span>ML</span><span>SQL</span>
+        </div>
+        <div class="job-footer">
+          <span>📍 Mumbai</span>
+          <span>💰 ₹18-25 LPA</span>
+          <a href="apply.html" class="btn-apply">Apply</a>
+        </div>
+      </div>
+
+      <div class="job-card" data-category="Engineering" data-location="bangalore">
+        <div class="job-header">
+          <div class="company-logo">🟠</div>
+          <div>
+            <h3>Cloud Engineer</h3>
+            <p class="company">Amazon</p>
+          </div>
+          <span class="badge full-time">Full Time</span>
+        </div>
+        <div class="job-tags">
+          <span>AWS</span><span>Kubernetes</span><span>CI/CD</span>
+        </div>
+        <div class="job-footer">
+          <span>📍 Bangalore</span>
+          <span>💰 ₹25-35 LPA</span>
+          <a href="apply.html" class="btn-apply">Apply</a>
+        </div>
+      </div>
+
+      <div class="job-card" data-category="Marketing" data-location="remote">
+        <div class="job-header">
+          <div class="company-logo">📣</div>
+          <div>
+            <h3>Growth Marketer</h3>
+            <p class="company">Swiggy</p>
+          </div>
+          <span class="badge remote">Remote</span>
+        </div>
+        <div class="job-tags">
+          <span>SEO</span><span>Analytics</span><span>Content</span>
+        </div>
+        <div class="job-footer">
+          <span>📍 Remote</span>
+          <span>💰 ₹8-12 LPA</span>
+          <a href="apply.html" class="btn-apply">Apply</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="view-all"><a href="jobs.html">View All Jobs →</a></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">Hire<span>Flow</span></div>
+      <p>Connecting talent with opportunity.</p>
+      <p class="footer-sub">Deployed on AWS using Terraform + Docker + GitHub Actions</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

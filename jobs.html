@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HireFlow — Browse Jobs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">Hire<span>Flow</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="jobs.html" class="active">Jobs</a></li>
+      <li><a href="companies.html">Companies</a></li>
+      <li><a href="apply.html">Apply</a></li>
+    </ul>
+    <a href="apply.html" class="btn-nav">Post a Job</a>
+  </nav>
+
+  <section class="page-hero">
+    <h1>Browse All <span>Jobs</span></h1>
+    <p>Find the perfect role from 12,000+ opportunities</p>
+  </section>
+
+  <section class="jobs-page">
+    <div class="filters">
+      <h3>Filters</h3>
+      <div class="filter-group">
+        <label>Job Type</label>
+        <select onchange="filterJobs()">
+          <option value="">All Types</option>
+          <option value="full-time">Full Time</option>
+          <option value="remote">Remote</option>
+          <option value="internship">Internship</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Category</label>
+        <select onchange="filterJobs()">
+          <option value="">All Categories</option>
+          <option value="Engineering">Engineering</option>
+          <option value="DevOps">DevOps</option>
+          <option value="Design">Design</option>
+          <option value="Data">Data Science</option>
+          <option value="Marketing">Marketing</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Location</label>
+        <select onchange="filterJobs()">
+          <option value="">All Locations</option>
+          <option value="bangalore">Bangalore</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="hyderabad">Hyderabad</option>
+          <option value="remote">Remote</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Experience</label>
+        <select onchange="filterJobs()">
+          <option value="">All Levels</option>
+          <option value="fresher">Fresher</option>
+          <option value="mid">2-5 Years</option>
+          <option value="senior">5+ Years</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="jobs-list">
+      <div class="jobs-count">Showing <strong>24</strong> jobs</div>
+
+      <div class="job-card-full">
+        <div class="job-header">
+          <div class="company-logo">🏢</div>
+          <div class="job-info">
+            <h3>DevOps Engineer</h3>
+            <p class="company">Infosys • Bangalore</p>
+            <div class="job-tags"><span>AWS</span><span>Terraform</span><span>Docker</span><span>Kubernetes</span></div>
+          </div>
+          <div class="job-meta">
+            <span class="badge full-time">Full Time</span>
+            <span class="salary">₹12-18 LPA</span>
+            <span class="posted">Posted 2 days ago</span>
+          </div>
+        </div>
+        <p class="job-desc">Looking for an experienced DevOps Engineer to manage cloud infrastructure and CI/CD pipelines on AWS using Terraform and Docker.</p>
+        <a href="apply.html" class="btn-apply">Apply Now</a>
+      </div>
+
+      <div class="job-card-full">
+        <div class="job-header">
+          <div class="company-logo">🔵</div>
+          <div class="job-info">
+            <h3>Software Engineer</h3>
+            <p class="company">Microsoft • Hyderabad</p>
+            <div class="job-tags"><span>React</span><span>Node.js</span><span>Azure</span><span>TypeScript</span></div>
+          </div>
+          <div class="job-meta">
+            <span class="badge full-time">Full Time</span>
+            <span class="salary">₹20-30 LPA</span>
+            <span class="posted">Posted 1 day ago</span>
+          </div>
+        </div>
+        <p class="job-desc">Join Microsoft's engineering team to build scalable cloud solutions. Experience with React and Node.js required.</p>
+        <a href="apply.html" class="btn-apply">Apply Now</a>
+      </div>
+
+      <div class="job-card-full">
+        <div class="job-header">
+          <div class="company-logo">🎨</div>
+          <div class="job-info">
+            <h3>UI/UX Designer</h3>
+            <p class="company">Razorpay • Remote</p>
+            <div class="job-tags"><span>Figma</span><span>Prototyping</span><span>CSS</span></div>
+          </div>
+          <div class="job-meta">
+            <span class="badge remote">Remote</span>
+            <span class="salary">₹10-15 LPA</span>
+            <span class="posted">Posted 3 days ago</span>
+          </div>
+        </div>
+        <p class="job-desc">Design beautiful user interfaces for Razorpay's payment products. Strong Figma skills required.</p>
+        <a href="apply.html" class="btn-apply">Apply Now</a>
+      </div>
+
+      <div class="job-card-full">
+        <div class="job-header">
+          <div class="company-logo">📊</div>
+          <div class="job-info">
+            <h3>Data Scientist</h3>
+            <p class="company">Flipkart • Mumbai</p>
+            <div class="job-tags"><span>Python</span><span>ML</span><span>SQL</span><span>TensorFlow</span></div>
+          </div>
+          <div class="job-meta">
+            <span class="badge full-time">Full Time</span>
+            <span class="salary">₹18-25 LPA</span>
+            <span class="posted">Posted 5 days ago</span>
+          </div>
+        </div>
+        <p class="job-desc">Build ML models to improve product recommendations and search at Flipkart scale.</p>
+        <a href="apply.html" class="btn-apply">Apply Now</a>
+      </div>
+
+      <div class="job-card-full">
+        <div class="job-header">
+          <div class="company-logo">🟠</div>
+          <div class="job-info">
+            <h3>Cloud Engineer</h3>
+            <p class="company">Amazon • Bangalore</p>
+            <div class="job-tags"><span>AWS</span><span>Kubernetes</span><span>CI/CD</span><span>Python</span></div>
+          </div>
+          <div class="job-meta">
+            <span class="badge full-time">Full Time</span>
+            <span class="salary">₹25-35 LPA</span>
+            <span class="posted">Posted today</span>
+          </div>
+        </div>
+        <p class="job-desc">Work on AWS infrastructure at scale. Help build and maintain cloud systems serving millions of customers.</p>
+        <a href="apply.html" class="btn-apply">Apply Now</a>
+      </div>
+
+      <div class="job-card-full">
+        <div class="job-header">
+          <div class="company-logo">🟣</div>
+          <div class="job-info">
+            <h3>Frontend Developer Intern</h3>
+            <p class="company">Zomato • Bangalore</p>
+            <div class="job-tags"><span>React</span><span>HTML</span><span>CSS</span></div>
+          </div>
+          <div class="job-meta">
+            <span class="badge internship">Internship</span>
+            <span class="salary">₹25,000/month</span>
+            <span class="posted">Posted 1 week ago</span>
+          </div>
+        </div>
+        <p class="job-desc">6-month internship for final year students. Work on Zomato's consumer-facing web app.</p>
+        <a href="apply.html" class="btn-apply">Apply Now</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">Hire<span>Flow</span></div>
+      <p>Connecting talent with opportunity.</p>
+      <p class="footer-sub">Deployed on AWS using Terraform + Docker + GitHub Actions</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

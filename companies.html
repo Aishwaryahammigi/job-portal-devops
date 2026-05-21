@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HireFlow — Companies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">Hire<span>Flow</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="companies.html" class="active">Companies</a></li>
+      <li><a href="apply.html">Apply</a></li>
+    </ul>
+    <a href="apply.html" class="btn-nav">Post a Job</a>
+  </nav>
+
+  <section class="page-hero">
+    <h1>Top <span>Companies</span> Hiring</h1>
+    <p>Explore 500+ companies actively looking for talent</p>
+  </section>
+
+  <section class="companies-page">
+    <div class="company-search">
+      <input type="text" placeholder="Search companies..." oninput="searchCompanies(this.value)"/>
+    </div>
+
+    <div class="companies-grid" id="companiesGrid">
+
+      <div class="company-card">
+        <div class="company-logo-big">🟠</div>
+        <h3>Amazon</h3>
+        <p class="company-type">E-Commerce & Cloud</p>
+        <div class="company-stats">
+          <span>📍 Bangalore, Hyderabad</span>
+          <span>👥 10,000+ employees</span>
+          <span>💼 45 open roles</span>
+        </div>
+        <p class="company-desc">Amazon is a global leader in e-commerce and cloud computing through AWS. Known for high-impact engineering roles.</p>
+        <a href="jobs.html" class="btn-apply">View Jobs</a>
+      </div>
+
+      <div class="company-card">
+        <div class="company-logo-big">🔵</div>
+        <h3>Microsoft</h3>
+        <p class="company-type">Software & Cloud</p>
+        <div class="company-stats">
+          <span>📍 Hyderabad</span>
+          <span>👥 8,000+ employees</span>
+          <span>💼 32 open roles</span>
+        </div>
+        <p class="company-desc">Microsoft India is one of the largest R&D centers outside the US. Work on Azure, Office 365, and AI products.</p>
+        <a href="jobs.html" class="btn-apply">View Jobs</a>
+      </div>
+
+      <div class="company-card">
+        <div class="company-logo-big">🏢</div>
+        <h3>Infosys</h3>
+        <p class="company-type">IT Services</p>
+        <div class="company-stats">
+          <span>📍 Bangalore, Pune</span>
+          <span>👥 300,000+ employees</span>
+          <span>💼 120 open roles</span>
+        </div>
+        <p class="company-desc">Infosys is a global leader in next-generation digital services and consulting. Great for freshers and experienced professionals.</p>
+        <a href="jobs.html" class="btn-apply">View Jobs</a>
+      </div>
+
+      <div class="company-card">
+        <div class="company-logo-big">💳</div>
+        <h3>Razorpay</h3>
+        <p class="company-type">Fintech</p>
+        <div class="company-stats">
+          <span>📍 Bangalore, Remote</span>
+          <span>👥 2,000+ employees</span>
+          <span>💼 28 open roles</span>
+        </div>
+        <p class="company-desc">India's leading payment gateway. Fast-paced startup culture with excellent engineering challenges.</p>
+        <a href="jobs.html" class="btn-apply">View Jobs</a>
+      </div>
+
+      <div class="company-card">
+        <div class="company-logo-big">🛒</div>
+        <h3>Flipkart</h3>
+        <p class="company-type">E-Commerce</p>
+        <div class="company-stats">
+          <span>📍 Bangalore, Mumbai</span>
+          <span>👥 30,000+ employees</span>
+          <span>💼 56 open roles</span>
+        </div>
+        <p class="company-desc">India's homegrown e-commerce giant. Work on systems that serve 400M+ customers across India.</p>
+        <a href="jobs.html" class="btn-apply">View Jobs</a>
+      </div>
+
+      <div class="company-card">
+        <div class="company-logo-big">🍕</div>
+        <h3>Swiggy</h3>
+        <p class="company-type">Food Tech</p>
+        <div class="company-stats">
+          <span>📍 Bangalore, Remote</span>
+          <span>👥 5,000+ employees</span>
+          <span>💼 34 open roles</span>
+        </div>
+        <p class="company-desc">India's top food delivery platform. Engineering at Swiggy means solving real-time logistics at massive scale.</p>
+        <a href="jobs.html" class="btn-apply">View Jobs</a>
+      </div>
+
+      <div class="company-card">
+        <div class="company-logo-big">🟣</div>
+        <h3>Zomato</h3>
+        <p class="company-type">Food Tech</p>
+        <div class="company-stats">
+          <span>📍 Gurugram, Bangalore</span>
+          <span>👥 4,000+ employees</span>
+          <span>💼 22 open roles</span>
+        </div>
+        <p class="company-desc">Zomato is a food delivery and restaurant discovery platform operating in 500+ cities across India.</p>
+        <a href="jobs.html" class="btn-apply">View Jobs</a>
+      </div>
+
+      <div class="company-card">
+        <div class="company-logo-big">🚗</div>
+        <h3>Ola</h3>
+        <p class="company-type">Mobility</p>
+        <div class="company-stats">
+          <span>📍 Bangalore</span>
+          <span>👥 3,000+ employees</span>
+          <span>💼 18 open roles</span>
+        </div>
+        <p class="company-desc">India's largest ride-sharing platform. Work on cutting-edge mobility solutions and EV technology.</p>
+        <a href="jobs.html" class="btn-apply">View Jobs</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">Hire<span>Flow</span></div>
+      <p>Connecting talent with opportunity.</p>
+      <p class="footer-sub">Deployed on AWS using Terraform + Docker + GitHub Actions</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

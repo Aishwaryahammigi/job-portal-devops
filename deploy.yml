@@ -1,0 +1,37 @@
+name: CI/CD Pipeline - Job Portal
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/job-portal:latest .
+
+      - name: Push to DockerHub
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/job-portal:latest
+
+      - name: Deploy to AWS EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKER_USERNAME }}/job-portal:latest
+            docker stop job-portal || true
+            docker rm job-portal || true
+            docker run -d --name job-portal -p 80:80 ${{ secrets.DOCKER_USERNAME }}/job-portal:latest

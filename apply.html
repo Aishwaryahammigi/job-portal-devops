@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HireFlow — Apply Now</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">Hire<span>Flow</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="companies.html">Companies</a></li>
+      <li><a href="apply.html" class="active">Apply</a></li>
+    </ul>
+    <a href="apply.html" class="btn-nav">Post a Job</a>
+  </nav>
+
+  <section class="page-hero">
+    <h1>Apply for a <span>Job</span></h1>
+    <p>Fill in your details and take the next step in your career</p>
+  </section>
+
+  <section class="apply-page">
+    <div class="apply-form-container">
+      <div class="form-header">
+        <h2>Job Application Form</h2>
+        <p>All fields marked with * are required</p>
+      </div>
+
+      <form id="applyForm" onsubmit="submitApplication(event)">
+
+        <div class="form-section">
+          <h3>Personal Information</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" placeholder="Enter your full name" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" placeholder="Enter your email" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" placeholder="Enter your phone number" required />
+            </div>
+            <div class="form-group">
+              <label>Location *</label>
+              <select required>
+                <option value="">Select your city</option>
+                <option>Bangalore</option>
+                <option>Mumbai</option>
+                <option>Hyderabad</option>
+                <option>Chennai</option>
+                <option>Delhi</option>
+                <option>Pune</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Professional Details</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Job Role Applying For *</label>
+              <select required>
+                <option value="">Select a role</option>
+                <option>DevOps Engineer</option>
+                <option>Software Engineer</option>
+                <option>Cloud Engineer</option>
+                <option>UI/UX Designer</option>
+                <option>Data Scientist</option>
+                <option>Frontend Developer</option>
+                <option>Backend Developer</option>
+                <option>Growth Marketer</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Experience Level *</label>
+              <select required>
+                <option value="">Select experience</option>
+                <option>Fresher (0-1 year)</option>
+                <option>Junior (1-3 years)</option>
+                <option>Mid-level (3-5 years)</option>
+                <option>Senior (5+ years)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Current Company</label>
+              <input type="text" placeholder="Enter current/last company" />
+            </div>
+            <div class="form-group">
+              <label>Expected Salary (LPA)</label>
+              <input type="text" placeholder="e.g. 12 LPA" />
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label>Key Skills *</label>
+            <input type="text" placeholder="e.g. AWS, Docker, Terraform, Python" required />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3>Additional Information</h3>
+          <div class="form-group full-width">
+            <label>Cover Letter</label>
+            <textarea placeholder="Tell us why you're a great fit for this role..." rows="5"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>LinkedIn Profile</label>
+              <input type="url" placeholder="https://linkedin.com/in/yourname" />
+            </div>
+            <div class="form-group">
+              <label>GitHub / Portfolio</label>
+              <input type="url" placeholder="https://github.com/yourname" />
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label>Upload Resume *</label>
+            <div class="file-upload">
+              <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" required />
+              <label for="resumeFile">📎 Choose File (PDF, DOC, DOCX)</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-submit">Submit Application 🚀</button>
+        </div>
+
+      </form>
+
+      <div id="successMsg" class="success-msg" style="display:none;">
+        <div class="success-icon">✅</div>
+        <h2>Application Submitted!</h2>
+        <p>Thank you for applying. We'll get back to you within 3-5 business days.</p>
+        <a href="jobs.html" class="btn-apply">Browse More Jobs</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">Hire<span>Flow</span></div>
+      <p>Connecting talent with opportunity.</p>
+      <p class="footer-sub">Deployed on AWS using Terraform + Docker + GitHub Actions</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
