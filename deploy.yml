@@ -1,8 +1,9 @@
-name: CI/CD Pipeline - Job Portal
+name: CI/CD Pipeline - HireFlow Job Portal
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
@@ -13,25 +14,26 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login to DockerHub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/job-portal:latest .
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: aishwaryahammigi/job-portal-devops:latest
 
-      - name: Push to DockerHub
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/job-portal:latest
-
-      - name: Deploy to AWS EC2
-        uses: appleboy/ssh-action@master
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.0
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_KEY }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/job-portal:latest
-            docker stop job-portal || true
-            docker rm job-portal || true
-            docker run -d --name job-portal -p 80:80 ${{ secrets.DOCKER_USERNAME }}/job-portal:latest
+            sudo docker pull aishwaryahammigi/job-portal-devops:latest
+            sudo docker stop job-portal || true
+            sudo docker rm job-portal || true
+            sudo docker run -d --name job-portal -p 80:80 aishwaryahammigi/job-portal-devops:latest
