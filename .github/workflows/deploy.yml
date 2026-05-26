@@ -34,6 +34,6 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             sudo docker pull aishwaryahammigi/job-portal-devops:latest
-            sudo docker stop job-portal || true
-            sudo docker rm job-portal || true
+            sudo docker stop $(sudo docker ps -q) || true
+            sudo docker rm $(sudo docker ps -aq) || true
             sudo docker run -d --name job-portal -p 80:80 aishwaryahammigi/job-portal-devops:latest
